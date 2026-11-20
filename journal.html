@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Journal — PLEATED.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&family=Special+Elite&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=28">
+</head>
+<body>
+
+<div class="page-transition-overlay" id="pageTransition"></div>
+
+<!-- Roman Balabaev Style Fullscreen Menu Hover Effect -->
+<div class="fullscreen-menu" id="fullscreenMenu">
+  <button class="menu-close-btn" id="menuCloseBtn" aria-label="Close menu">✕</button>
+  <div class="menu-items-container">
+    <a href="index.html" class="menu-item-link transition-link" data-img="images/slide-1.jpg">Home</a>
+    <a href="shop.html" class="menu-item-link transition-link" data-img="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80">Shop</a>
+    <a href="about.html" class="menu-item-link transition-link" data-img="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80">About</a>
+    <a href="journal.html" class="menu-item-link transition-link" data-img="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80">Journal</a>
+  </div>
+  <div class="menu-hover-preview" id="menuPreview">
+    <img src="" alt="Preview">
+  </div>
+</div>
+
+<header id="siteHeader" class="scrolled">
+  <div class="wrap nav">
+    <div class="nav-left">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <a href="index.html" class="brandmark transition-link">
+      <svg class="brand-logo" viewBox="0 0 300 60">
+        <text x="0" y="28" font-family="Bitter, serif" font-weight="900" font-size="26" letter-spacing="4" fill="#2B2620">PLEATED<tspan fill="#351E10">.</tspan></text>
+        <text x="1" y="46" font-family="Special Elite, monospace" font-size="9" letter-spacing="3" fill="#351E10">VINTAGE CLOTHING CO.</text>
+      </svg>
+    </a>
+    <button class="cart-btn" id="cartOpenBtn" aria-haspopup="dialog">
+      Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main style="padding-top: 140px;">
+  <section class="section" style="padding-top:20px;">
+    <div class="wrap pop-in-element pop-delay-1" style="max-width:800px;">
+      <div class="eyebrow">Dispatches</div>
+      <h1 style="font-family:var(--display); font-weight:900; font-size:42px; margin:6px 0 16px;">The Journal</h1>
+      <p style="line-height:1.8; color:var(--ink-soft); font-size:16px;">Notes from the cutting table — fabric sourcing, care guides, and shop history.</p>
+      <div style="background:var(--paper-dark); padding:30px; margin-top:30px; border:1px solid var(--line);" class="pop-in-element pop-delay-2">
+        <strong style="font-family:var(--display); font-size:18px; display:block; margin-bottom:8px;">First entry coming soon</strong>
+        <span style="font-family:var(--mono); font-size:13px; color:var(--ink-soft);">Check back once the new seasonal catalog drops.</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap"><div class="stitch" style="margin-top:70px;"></div></div>
+
+<footer>
+  <div class="wrap" style="display:flex; flex-direction:column; gap:18px; width:100%;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <span class="word">© 2026 PLEATED. Vintage Clothing Co.</span>
+      <nav>
+        <a href="shop.html" class="transition-link">Shop</a>
+        <a href="about.html" class="transition-link">About</a>
+        <a href="journal.html" class="transition-link">Journal</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-label="Shopping cart">
+  <div class="receipt-top"></div>
+  <div class="drawer-head">
+    <h3>Order Slip</h3>
+    <button class="drawer-close" id="drawerClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div class="drawer-empty">Your slip is empty.<br>Add something built to last.</div>
+  </div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>TOTAL</span><span id="cartTotal">$0.00</span></div>
+    <button class="checkout-btn" id="checkoutBtn" disabled>Send to Checkout</button>
+  </div>
+</aside>
+
+<script src="script.js?v=28"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E6DFCE" stroke-width="0.8" />
+      <path d="M 20 0 L 20 40 M 0 20 L 40 20" fill="none" stroke="#EDE6D6" stroke-width="0.4" stroke-dasharray="2,2" />
+    </pattern>
+    <filter id="paper-texture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDiffuseLighting in="noise" lighting-color="#FAF6ED" surfaceScale="1.2" result="light">
+        <feDistantLight azimuth="60" elevation="50" />
+      </feDiffuseLighting>
+      <feBlend mode="multiply" in="SourceGraphic" in2="light" />
+    </filter>
+  </defs>
+
+  <!-- Parchment Canvas Background -->
+  <rect width="100%" height="100%" fill="#FAF6ED" />
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- Outer Blueprint Border -->
+  <rect x="30" y="30" width="740" height="940" fill="none" stroke="#2B2620" stroke-width="2" />
+  <rect x="36" y="36" width="728" height="928" fill="none" stroke="#2B2620" stroke-width="0.8" stroke-dasharray="6,4" />
+
+  <!-- Corner Registration Marks -->
+  <path d="M 20 30 L 40 30 M 30 20 L 30 40" stroke="#8A3324" stroke-width="1.5" />
+  <path d="M 760 30 L 780 30 M 770 20 L 770 40" stroke="#8A3324" stroke-width="1.5" />
+  <path d="M 20 970 L 40 970 M 30 960 L 30 980" stroke="#8A3324" stroke-width="1.5" />
+  <path d="M 760 970 L 780 970 M 770 960 L 770 980" stroke="#8A3324" stroke-width="1.5" />
+
+  <!-- Header Details -->
+  <g id="header-text" transform="translate(60, 80)">
+    <text font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="12" letter-spacing="4" fill="#8A3324" font-weight="600">★ PLEATED ARCHIVE SPECIFICATION — RECORD 04</text>
+    <text y="28" font-family="'Bitter', Georgia, serif" font-weight="900" font-size="28" letter-spacing="2" fill="#2B2620">CHORE COAT / WORK POLO</text>
+    <text y="48" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="2" fill="#6B6359">DENSITY: 380 GSM | 100% HEAVY COMBED TWILL | EST. 2026</text>
+  </g>
+
+  <!-- Technical Garment Silhouette (Chore Coat / Heavy Polo) -->
+  <g id="garment" transform="translate(400, 520)">
+    <!-- Main Body Contour -->
+    <path d="M -130 -240 
+             L -60 -255 
+             Q 0 -240 60 -255 
+             L 130 -240 
+             L 240 -120 
+             L 200 -70 
+             L 145 -125 
+             L 155 180 
+             Q 0 195 -155 180 
+             L -145 -125 
+             L -200 -70 
+             L -240 -120 Z" 
+          fill="#F0EAD6" stroke="#2B2620" stroke-width="3" stroke-linejoin="round" />
+
+    <!-- Stitching / Seam Detail Lines -->
+    <path d="M -145 170 Q 0 185 145 170" fill="none" stroke="#8A3324" stroke-width="1.5" stroke-dasharray="5,4" />
+    <path d="M -135 -115 L -143 175" fill="none" stroke="#2B2620" stroke-width="1.2" stroke-dasharray="4,4" />
+    <path d="M 135 -115 L 143 175" fill="none" stroke="#2B2620" stroke-width="1.2" stroke-dasharray="4,4" />
+
+    <!-- Collar & Placket -->
+    <path d="M -60 -255 L -10 -170 L 0 -170 L -25 -250" fill="#FAF6ED" stroke="#2B2620" stroke-width="2" />
+    <path d="M 60 -255 L 10 -170 L 0 -170 L 25 -250" fill="#FAF6ED" stroke="#2B2620" stroke-width="2" />
+    <rect x="-18" y="-170" width="36" height="150" fill="#FAF6ED" stroke="#2B2620" stroke-width="2" />
+    <line x1="0" y1="-170" x2="0" y2="-20" stroke="#8A3324" stroke-width="1" stroke-dasharray="3,3" />
+
+    <!-- Brass Buttons -->
+    <circle cx="0" cy="-145" r="5" fill="#CBB079" stroke="#2B2620" stroke-width="1.5" />
+    <circle cx="0" cy="-105" r="5" fill="#CBB079" stroke="#2B2620" stroke-width="1.5" />
+    <circle cx="0" cy="-65" r="5" fill="#CBB079" stroke="#2B2620" stroke-width="1.5" />
+    <circle cx="0" cy="-25" r="5" fill="#CBB079" stroke="#2B2620" stroke-width="1.5" />
+
+    <!-- Pockets -->
+    <!-- Left Chest Pocket -->
+    <rect x="-115" y="-95" width="65" height="75" rx="3" fill="#FAF6ED" stroke="#2B2620" stroke-width="1.8" />
+    <path d="M -115 -75 L -50 -75" stroke="#8A3324" stroke-width="1.2" stroke-dasharray="3,3" />
+    <!-- Lower Right Chore Pocket -->
+    <rect x="50" y="50" width="85" height="100" rx="3" fill="#FAF6ED" stroke="#2B2620" stroke-width="2" />
+    <path d="M 50 70 L 135 70" stroke="#8A3324" stroke-width="1.2" stroke-dasharray="3,3" />
+    <!-- Lower Left Chore Pocket -->
+    <rect x="-135" y="50" width="85" height="100" rx="3" fill="#FAF6ED" stroke="#2B2620" stroke-width="2" />
+    <path d="M -135 70 L -50 70" stroke="#8A3324" stroke-width="1.2" stroke-dasharray="3,3" />
+
+    <!-- Measurement Annotations -->
+    <g id="annotations" font-family="'IBM Plex Mono', monospace" font-size="9" fill="#8A3324">
+      <!-- Chest width -->
+      <line x1="-155" y1="0" x2="-185" y2="0" stroke="#8A3324" stroke-width="1" />
+      <line x1="155" y1="0" x2="185" y2="0" stroke="#8A3324" stroke-width="1" />
+      <line x1="-185" y1="0" x2="185" y2="0" stroke="#8A3324" stroke-width="1" stroke-dasharray="2,2" />
+      <text x="0" y="-8" text-anchor="middle" font-weight="600">CHEST WIDTH 58 CM</text>
+      
+      <!-- Back length -->
+      <line x1="190" y1="-240" x2="225" y2="-240" stroke="#8A3324" stroke-width="1" />
+      <line x1="190" y1="180" x2="225" y2="180" stroke="#8A3324" stroke-width="1" />
+      <line x1="210" y1="-240" x2="210" y2="180" stroke="#8A3324" stroke-width="1" stroke-dasharray="2,2" />
+      <text x="215" y="-20" transform="rotate(90, 215, -20)" text-anchor="middle" font-weight="600">LENGTH 74 CM</text>
+    </g>
+  </g>
+
+  <!-- Authentic Vintage Seal / Stamp -->
+  <g id="vintage-stamp" transform="translate(620, 840) rotate(-8)">
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#8A3324" stroke-width="2.5" stroke-dasharray="6,3" />
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#8A3324" stroke-width="1" />
+    <path id="curve" d="M -40 0 A 40 40 0 0 1 40 0" fill="none" />
+    <text font-family="'Special Elite', monospace" font-size="10" fill="#8A3324" letter-spacing="2" text-anchor="middle">
+      <textPath href="#curve" startOffset="50%">PLEATED WORKSHOP</textPath>
+    </text>
+    <text x="0" y="8" font-family="'Bitter', serif" font-weight="900" font-size="18" fill="#8A3324" text-anchor="middle">★ PASSED ★</text>
+    <text x="0" y="24" font-family="'IBM Plex Mono', monospace" font-size="9" fill="#8A3324" text-anchor="middle">DHAKA ARCHIVE</text>
+  </g>
+
+  <!-- Bottom Legend Footer -->
+  <g id="footer-legend" transform="translate(60, 935)" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#2B2620">
+    <text>PATTERN: PL-ARCH-04</text>
+    <text x="220">CUT: RELAXED VINTAGE</text>
+    <text x="440">BATCH: LIMITED RUN</text>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/webhook",
+      "destination": "https://occlbnyyhnrslteklqgm.supabase.co/functions/v1/zinipay-webhook"
+    }
+  ]
+}

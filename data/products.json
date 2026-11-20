@@ -1,0 +1,132 @@
+[
+  {
+    "id": "prod-bfsp-01",
+    "code": "BFSP",
+    "name": "Brown Full Sleeve Polo",
+    "category": "Knitwear",
+    "price": 1499,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Size & fit: Regular fit, long sleeves, ribbed hem and cuffs, 380 GSM. Made from 80% Acrylic and 20% Nylon, designed for timeless character and vintage comfort.",
+    "details": "{\"unavailable_sizes\":[]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-wfsp-02",
+    "code": "WFSP",
+    "name": "Off White Full Sleeve Polo",
+    "category": "Knitwear",
+    "price": 1499,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Crafted in heavy gauge knit with structured collar and ribbed cuffs. High-density textile weave tailored for lasting structure and vintage silhouette.",
+    "details": "{\"unavailable_sizes\":[\"S\"]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-cwk-03",
+    "code": "PL-003",
+    "name": "Vintage Workwear Chore Coat",
+    "category": "Outerwear",
+    "price": 2450,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Built from 12oz rugged duck canvas with triple-needle reinforced seams, vintage brass shanks, and deep chore utility pockets.",
+    "details": "{\"unavailable_sizes\":[]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-plt-04",
+    "code": "PL-004",
+    "name": "Pleated Selvedge Trousers",
+    "category": "Trousers",
+    "price": 1950,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Double forward pleats, high rise, relaxed tapered leg, and sturdy pocket bags built from selvedge cotton twill.",
+    "details": "{\"unavailable_sizes\":[\"XL\"]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-brt-05",
+    "code": "PL-005",
+    "name": "French Sailor Breton Knit",
+    "category": "Knitwear",
+    "price": 1750,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Heavy maritime interlock knit with classic horizontal nautical stripes. Boatneck silhouette inspired by 1950s French naval garments.",
+    "details": "{\"unavailable_sizes\":[]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-den-06",
+    "code": "PL-006",
+    "name": "Heavy Indigo Denim Overshirt",
+    "category": "Shirts",
+    "price": 2100,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Rope-dyed 10.5oz indigo twill featuring twin flap workwear pockets, horn buttons, and contrast chain-stitch run-off on side gussets.",
+    "details": "{\"unavailable_sizes\":[\"S\",\"XL\"]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-car-07",
+    "code": "PL-007",
+    "name": "1940s Field Utility Cargo Pants",
+    "category": "Trousers",
+    "price": 2200,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Heavy military herringbone twill with expandable cargo bellows pockets, reinforced seat patch, and drawstring hem ties.",
+    "details": "{\"unavailable_sizes\":[]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-twd-08",
+    "code": "PL-008",
+    "name": "Herringbone Tweed Overcoat",
+    "category": "Outerwear",
+    "price": 3600,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Tailored from 100% heavy wool herringbone tweed. Raglan shoulder construction, horn button placket, and deep slant hand-warmer pockets.",
+    "details": "{\"unavailable_sizes\":[\"S\",\"M\",\"L\",\"XL\"]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-wfl-09",
+    "code": "PL-009",
+    "name": "Vintage Heavy Waffle Henley",
+    "category": "Shirts",
+    "price": 1350,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Knit on antique loopwheel machinery from 400 GSM combed thermal cotton. Ribbed cuffs and mother-of-pearl cat-eye buttons.",
+    "details": "{\"unavailable_sizes\":[]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  },
+  {
+    "id": "prod-prk-10",
+    "code": "PL-010",
+    "name": "M-65 Washed Fishtail Parka",
+    "category": "Outerwear",
+    "price": 3200,
+    "img": "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg",
+    "description": "Weather-resistant weathered cotton-nylon poplin with brass heavy-duty zip, snapped storm placket, and drawcord waist and fishtail hem.",
+    "details": "{\"unavailable_sizes\":[]}",
+    "images": [
+      "https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg"
+    ]
+  }
+]

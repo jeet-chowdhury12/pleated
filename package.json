@@ -1,0 +1,17 @@
+{
+  "name": "pleated",
+  "version": "1.0.0",
+  "description": "PLEATED. Vintage Clothing Co. Archive & E-Commerce",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "vintage",
+    "clothing",
+    "archive",
+    "ecommerce"
+  ],
+  "author": "PLEATED.",
+  "license": "ISC"
+}

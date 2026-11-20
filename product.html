@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Product Details — PLEATED.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&family=Special+Elite&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=28">
+</head>
+<body>
+
+<div class="page-transition-overlay" id="pageTransition"></div>
+
+<!-- Fullscreen Menu -->
+<div class="fullscreen-menu" id="fullscreenMenu">
+  <button class="menu-close-btn" id="menuCloseBtn" aria-label="Close menu">✕</button>
+  <div class="menu-items-container">
+    <a href="index.html" class="menu-item-link transition-link">Home</a>
+    <a href="shop.html" class="menu-item-link transition-link">Shop</a>
+    <a href="about.html" class="menu-item-link transition-link">About</a>
+    <a href="journal.html" class="menu-item-link transition-link">Journal</a>
+  </div>
+  <div class="menu-footer-note">PLEATED. VINTAGE WORKSHOP — 2026</div>
+</div>
+
+<header id="siteHeader" class="scrolled">
+  <div class="wrap nav">
+    <div class="nav-left">
+      <a href="shop.html" style="font-family:var(--mono); font-size:12px; text-transform:uppercase;" class="transition-link">← Back to Catalog</a>
+    </div>
+    <a href="index.html" class="brandmark">
+      <svg class="brand-logo" viewBox="0 0 300 60">
+        <text x="0" y="28" font-family="Bitter, serif" font-weight="900" font-size="26" letter-spacing="4" fill="#2B2620">PLEATED<tspan fill="#351E10">.</tspan></text>
+        <text x="1" y="46" font-family="Special Elite, monospace" font-size="9" letter-spacing="3" fill="#351E10">ARCHIVE SPECIFICATION</text>
+      </svg>
+    </a>
+    <button class="cart-btn" id="cartOpenBtn" aria-haspopup="dialog">
+      Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main style="padding-top: 140px; padding-bottom: 90px;">
+  <div class="wrap" id="productDetailContainer">
+    <!-- Loaded dynamically -->
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; flex-direction:column; gap:18px; width:100%;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <span class="word">© 2026 PLEATED. Vintage Clothing Co.</span>
+      <nav style="display: flex; gap: 22px; align-items: center;">
+        <a href="shop.html" class="transition-link">Shop</a>
+        <a href="about.html" class="transition-link">About</a>
+        <a href="journal.html" class="transition-link">Journal</a>
+        <a href="admin.html" style="opacity: 0.3; font-size: 10px; letter-spacing: 0.1em;">Admin</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-label="Shopping cart">
+  <div class="receipt-top"></div>
+  <div class="drawer-head">
+    <h3>Order Slip</h3>
+    <button class="drawer-close" id="drawerClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div class="drawer-empty">Your slip is empty.<br>Add something built to last.</div>
+  </div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>TOTAL</span><span id="cartTotal">৳0</span></div>
+    <button class="checkout-btn" id="checkoutBtn" disabled>Send to Checkout</button>
+  </div>
+</aside>
+
+<script src="script.js?v=28"></script>
+<script>
+  // Load Product Details based on URL ?code=...
+  async function initProductPage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    
+    let products = [];
+    try {
+      const res = await fetch('https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/products.json?t=' + Date.now());
+      if (res.ok) {
+        products = await res.json();
+      }
+    } catch(e) {}
+
+    if (!Array.isArray(products) || products.length === 0) {
+      if (window.PleatedVault) {
+        products = await window.PleatedVault.get('pleated_cached_products') || [];
+      }
+      if (products.length === 0) {
+        try { products = JSON.parse(localStorage.getItem('pleated_cached_products') || '[]'); } catch(e) {}
+      }
+      if (products.length === 0 && window.DEFAULT_PLEATED_PRODUCTS) {
+        products = window.DEFAULT_PLEATED_PRODUCTS;
+      }
+    }
+
+    const product = products.find(p => p.code === code) || products[0];
+
+    if (product) {
+    let specText = product.description || 'Handcrafted vintage silhouette tailored with heavy fabric and reinforced stitching.';
+    if (product.details) {
+      if (typeof product.details === 'string') {
+        try {
+          const parsed = JSON.parse(product.details);
+          specText = parsed.text || product.description || specText;
+        } catch (e) {
+          specText = product.details;
+        }
+      } else if (typeof product.details === 'object') {
+        specText = product.details.text || product.description || specText;
+      }
+    }
+
+    const images = typeof window.parseProductImages === 'function' ? window.parseProductImages(product) : (product.images || [product.img || 'https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg']);
+    if (images.length === 0) images.push('https://occlbnyyhnrslteklqgm.supabase.co/storage/v1/object/public/pleated-assets/logo.jpg');
+    window.productPageImages = images;
+    window.productPageIndex = 0;
+
+    document.getElementById('productDetailContainer').innerHTML = `
+      <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items:start;">
+        <div>
+          <div style="background:#F0EAD6; border:1px solid var(--line); aspect-ratio:4/5; overflow:hidden; margin-bottom:14px; box-shadow:0 12px 30px rgba(43,38,32,0.06); position:relative; cursor:pointer;" onclick="openFullscreenLightbox()">
+            <img id="mainViewer" src="${images[0]}" alt="${product.name}" style="width:100%; height:100%; object-fit:cover;">
+            <div class="tap-fullscreen-hint" onclick="event.stopPropagation(); openFullscreenLightbox()">Tap for Fullscreen ⤢</div>
+          </div>
+          <div style="display:flex; gap:10px; overflow-x:auto; padding-bottom:6px;">
+            ${images.map((img, idx) => `
+              <img src="${img}" onclick="setProductViewerImage(${idx})" style="width:75px; height:75px; object-fit:cover; border:1.5px solid var(--line); cursor:pointer; background:#F0EAD6;">
+            `).join('')}
+          </div>
+        </div>
+        <div>
+          <div class="eyebrow">${(product.category || 'Archive').toUpperCase()} — ${product.code}</div>
+          <h1 style="font-family:var(--display); font-weight:900; font-size:clamp(32px, 4vw, 44px); margin:0 0 16px; line-height:1.1;">${product.name}</h1>
+          <div style="font-family:var(--mono); font-size:24px; font-weight:600; color:var(--rust); margin-bottom:24px;">৳${Number(product.price).toLocaleString()}</div>
+          <div style="border-top:1px dashed var(--line); border-bottom:1px dashed var(--line); padding:20px 0; margin-bottom:24px;">
+            <div style="font-family:var(--stamp); font-size:11px; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px; letter-spacing:0.1em;">Archive Specification</div>
+            <p style="font-size:15px; color:var(--ink-soft); line-height:1.7; margin:0;">${specText}</p>
+          </div>
+          <button class="btn-stamp" onclick="addToSlip('${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.code}')" style="width:100%; padding:16px; text-align:center;">Add to Slip / Cart</button>
+        </div>
+      </div>
+    `;
+  } else {
+    document.getElementById('productDetailContainer').innerHTML = `<p style="font-family:var(--mono);">Product not found.</p>`;
+  }
+  }
+
+  // Inject Lightbox container
+  if (!document.getElementById('fullscreenLightbox')) {
+    const lbHTML = `
+      <div id="fullscreenLightbox" class="fullscreen-lightbox" onclick="closeFullscreenLightbox(event)">
+        <button type="button" class="lightbox-close" onclick="closeFullscreenLightbox(event)" aria-label="Close fullscreen">✕</button>
+        <button type="button" id="lbPrevBtn" class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); prevProductViewerImage()" aria-label="Previous image">‹</button>
+        <img id="lightboxImg" src="" alt="Fullscreen asset" onclick="event.stopPropagation()">
+        <button type="button" id="lbNextBtn" class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); nextProductViewerImage()" aria-label="Next image">›</button>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', lbHTML);
+
+    const lbEl = document.getElementById('fullscreenLightbox');
+    if (lbEl) {
+      let lbTouchStartX = 0;
+      let lbTouchEndX = 0;
+      lbEl.addEventListener('touchstart', (e) => {
+        lbTouchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      lbEl.addEventListener('touchend', (e) => {
+        lbTouchEndX = e.changedTouches[0].screenX;
+        const diff = lbTouchEndX - lbTouchStartX;
+        if (diff < -40) {
+          window.nextProductViewerImage();
+        } else if (diff > 40) {
+          window.prevProductViewerImage();
+        }
+      }, { passive: true });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('fullscreenLightbox');
+      if (lb && lb.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeFullscreenLightbox();
+        } else if (e.key === 'ArrowRight') {
+          nextProductViewerImage();
+        } else if (e.key === 'ArrowLeft') {
+          prevProductViewerImage();
+        }
+      }
+    });
+  }
+
+  window.setProductViewerImage = function(idx) {
+    if (!window.productPageImages || !window.productPageImages[idx]) return;
+    window.productPageIndex = idx;
+    const src = window.productPageImages[idx];
+    const mainV = document.getElementById('mainViewer');
+    if (mainV) mainV.src = src;
+    const lbImg = document.getElementById('lightboxImg');
+    if (lbImg) lbImg.src = src;
+  };
+
+  window.nextProductViewerImage = function() {
+    if (!window.productPageImages || window.productPageImages.length <= 1) return;
+    window.productPageIndex = (window.productPageIndex + 1) % window.productPageImages.length;
+    window.setProductViewerImage(window.productPageIndex);
+  };
+
+  window.prevProductViewerImage = function() {
+    if (!window.productPageImages || window.productPageImages.length <= 1) return;
+    window.productPageIndex = (window.productPageIndex - 1 + window.productPageImages.length) % window.productPageImages.length;
+    window.setProductViewerImage(window.productPageIndex);
+  };
+
+  window.openFullscreenLightbox = function() {
+    const lb = document.getElementById('fullscreenLightbox');
+    const img = document.getElementById('lightboxImg');
+    if (!lb || !img) return;
+
+    const currentSrc = (window.productPageImages && window.productPageImages[window.productPageIndex]) 
+      ? window.productPageImages[window.productPageIndex] 
+      : (document.getElementById('mainViewer')?.src || '');
+
+    if (currentSrc) {
+      img.src = currentSrc;
+      lb.style.display = 'flex';
+      requestAnimationFrame(() => {
+        lb.classList.add('active');
+      });
+
+      const hasMultiple = window.productPageImages && window.productPageImages.length > 1;
+      const lbPrev = document.getElementById('lbPrevBtn');
+      const lbNext = document.getElementById('lbNextBtn');
+      if (lbPrev) lbPrev.style.display = hasMultiple ? 'flex' : 'none';
+      if (lbNext) lbNext.style.display = hasMultiple ? 'flex' : 'none';
+
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeFullscreenLightbox = function(e) {
+    if (e && e.target && (e.target.id === 'lightboxImg' || e.target.classList.contains('lightbox-nav'))) {
+      return;
+    }
+    const lb = document.getElementById('fullscreenLightbox');
+    if (lb) {
+      lb.classList.remove('active');
+      setTimeout(() => {
+        lb.style.display = 'none';
+      }, 280);
+      document.body.style.overflow = '';
+    }
+  };
+
+  initProductPage();
+</script>
+</body>
+</html>

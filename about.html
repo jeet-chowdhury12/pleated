@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>About — PLEATED. Vintage Clothing Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&family=Special+Elite&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=28">
+</head>
+<body>
+
+<div class="page-transition-overlay" id="pageTransition"></div>
+
+<div class="fullscreen-menu" id="fullscreenMenu">
+  <button class="menu-close-btn" id="menuCloseBtn" aria-label="Close menu">✕</button>
+  <div class="menu-items-container">
+    <a href="index.html" class="menu-item-link transition-link">Home</a>
+    <a href="shop.html" class="menu-item-link transition-link">Shop</a>
+    <a href="about.html" class="menu-item-link transition-link">About</a>
+    <a href="journal.html" class="menu-item-link transition-link">Journal</a>
+    <a href="admin.html" class="menu-item-link transition-link">Admin Ledger</a>
+  </div>
+  <div class="menu-footer-note">PLEATED. VINTAGE WORKSHOP — 2026</div>
+</div>
+
+<header id="siteHeader">
+  <div class="wrap nav">
+    <div class="nav-left">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+
+    <a href="index.html" class="brandmark transition-link">
+      <svg class="brand-logo" viewBox="0 0 300 60">
+        <text x="0" y="28" font-family="Bitter, serif" font-weight="900" font-size="26" letter-spacing="4" fill="#2B2620">PLEATED<tspan fill="#351E10">.</tspan></text>
+        <text x="1" y="46" font-family="Special Elite, monospace" font-size="9" letter-spacing="3" fill="#351E10">VINTAGE CLOTHING CO.</text>
+      </svg>
+    </a>
+
+    <button class="cart-btn" id="cartOpenBtn" aria-haspopup="dialog">
+      Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main style="padding: 140px 20px 80px; max-width: 800px; margin: 0 auto;">
+  <div class="eyebrow" style="font-family:var(--stamp); font-size:12px; color:var(--rust); margin-bottom:12px; letter-spacing:0.1em;">★ Manifesto & Heritage</div>
+  <h1 style="font-family:var(--display); font-size:clamp(36px, 6vw, 54px); font-weight:900; margin-bottom:40px; color:var(--ink);">The Pleated Philosophy.</h1>
+
+  <div style="font-family:var(--mono); font-size:16px; line-height:1.9; color:var(--ink); display:flex; flex-direction:column; gap:24px;">
+    <p>Born in Bangladesh, Pleated is built on the believe that true luxury lies in character, construction and silhouette of a cloth.</p>
+    <p>We create limited, thoughtfully crafted pieces where quality matters more than quantity. Where every thread tells a story.</p>
+    <p>Our garments speak through their texture, silhouette and construction—designed for only those who appreciate eternal style with subtle confidence.</p>
+    <p>Designed only for — A Man</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; flex-direction:column; gap:18px; width:100%; max-width:1180px; margin:0 auto; padding:0 20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <span class="word">© 2026 PLEATED. Vintage Clothing Co.</span>
+      <nav style="display: flex; gap: 22px; align-items: center;">
+        <a href="shop.html" class="transition-link">Shop</a>
+        <a href="about.html" class="transition-link">About</a>
+        <a href="journal.html" class="transition-link">Journal</a>
+        <a href="admin.html" style="opacity: 0.3; font-size: 10px; letter-spacing: 0.1em;" class="transition-link">Admin</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-label="Shopping cart">
+  <div class="receipt-top"></div>
+  <div class="drawer-head">
+    <h3>Order Slip</h3>
+    <button class="drawer-close" id="drawerClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div class="drawer-empty">Your slip is empty.<br>Add something built to last.</div>
+  </div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>TOTAL</span><span id="cartTotal">৳0</span></div>
+    <button class="checkout-btn" id="checkoutBtn" disabled>Send to Checkout</button>
+  </div>
+</aside>
+
+<script src="script.js?v=28"></script>
+</body>
+</html>
